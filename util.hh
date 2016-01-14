@@ -4,11 +4,10 @@
 #include <tuple>
 #include <algorithm>
 #include <functional>
-#include <queue>
 
 #include <sstream>
 
-#include "BiMap.cc"
+#include "BiMap.hh"
 #include "GGraph.hh"
 
 //using namespace std;

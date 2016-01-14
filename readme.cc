@@ -1,8 +1,9 @@
 #include <iostream>
 #include <regex>
-#include "BiMap.cc"
-#include "util.hh"
+#include "BiMap.hh"
 #include "GGraph.hh"
+
+#include "util.hh"
 
 using DearMap = SomewhatBiMap<std::tuple<bool, std::string>, unsigned> ;
         // L = old, R = new
@@ -19,7 +20,7 @@ int main() {
 	std::stringstream ss;
 
 	ss <<
-	"5 \n"
+	"1 \n"
         "A Z\n"
 	"\"A\", \"B\", 10,15 \n"
 	"A,C,5,187\n"
@@ -101,6 +102,7 @@ int main() {
                         ggb.add_edge(inodeA_A, inodeB_A, a2b_A, 0);
                 }
         }
+
         std::cout << "from: " << from << " to: " << to << std::endl;
         unsigned fromT, fromA,
                 toT, toA;
@@ -130,7 +132,7 @@ int main() {
         //std::vector<std::tuple<unsigned, unsigned, bool>>* path;
         unsigned cost;
 
-        auto path = g->find_path(start, end, max_depth);
+        auto path = g->find_path(start, end, max_depth+1);
         ///std::cout << "path " << (found ? "found" : "not found") << "\n";
         for(auto it = path->begin(); it != path->end(); it++) {
                 std::tuple<unsigned, unsigned, bool> n = *it;
